@@ -1,0 +1,248 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2F4F4F;
+    color: #ecf0f1;
+    padding-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-header h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+}
+
+    .sidebar-nav li {
+        padding: 15px;
+        border-bottom: 1px solid #34495e;
+    }
+
+        .sidebar-nav li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+            display: block;
+        }
+
+            .sidebar-nav li a:hover {
+                background-color: #34495e;
+            }
+
+.main-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1, h3 {
+    color: #333;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.progress-item {
+    margin-bottom: 20px;
+}
+
+.progress-bar-container {
+    background-color: #ddd;
+    border-radius: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    background-color: #2F4F4F;
+    height: 100%;
+    border-radius: 25px;
+    width: 0%; /* Initially set width to 0 */
+    transition: width 1s ease-in-out; /* Smooth transition */
+}
+
+.achievements-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.achievement-item {
+    position: relative;
+    width: 200px;
+    background-color: #f2f2f2;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.achievement-badge {
+    width: 50px;
+    height: 50px;
+}
+
+.achievement-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tooltip */
+.tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 10;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+    .tooltip::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #333 transparent transparent transparent;
+    }
+
+.achievement-item:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+    .leaderboard-table th, .leaderboard-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .leaderboard-table th {
+        background-color: #2F4F4F;
+        color: white;
+    }
+
+/* Highlighted Row for Logged-in User */
+.highlighted-row {
+    background-color: #7CFC00;
+    font-weight: bold;
+    color: #2F4F4F;
+}
+
+.reward-section {
+    font-size: 20px;
+}
+
+.theme-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.theme-toggle-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #2F4F4F;
+    color: white;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+    .dark-mode .sidebar {
+        background-color: #1f1f1f;
+        color: #ffffff;
+    }
+
+    .dark-mode .sidebar-nav li a {
+        color: #ecf0f1;
+    }
+
+        .dark-mode .sidebar-nav li a:hover {
+            background-color: #34495e;
+        }
+
+    .dark-mode .main-content {
+        background-color: #1f1f1f;
+    }
+
+    .dark-mode h1, .dark-mode h3 {
+        color: #ffffff;
+    }
+
+    .dark-mode .progress-bar {
+        background-color: #2F4F4F;
+    }
+
+    .dark-mode .achievement-item {
+        background-color: #333;
+    }
+
+    .dark-mode .leaderboard-table {
+        border-color: #444;
+    }
+
+        .dark-mode .leaderboard-table th {
+            background-color: #2F4F4F;
+            color: white;
+        }

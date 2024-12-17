@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="dashboard-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>Dashboard</h2>
+        </div>
+        <ul class="sidebar-nav">
+            <li><a href="@Url.Action("Dashboard", "Profile")">Profile</a></li>
+            <li><a href="@Url.Action("Logout", "Profile")">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="container">
+
+            <!-- Theme Customization Buttons -->
+            <div class="theme-buttons">
+                <button class="theme-toggle-btn" id="light-theme-btn">Light Theme</button>
+                <button class="theme-toggle-btn" id="dark-theme-btn">Dark Theme</button>
+            </div>
+
+            <h1><center>Welcome Back, User!</center></h1>
+            <p><b><center>Your personalized dashboard for tracking progress and rewards.</center></b></p>
+
+            <!-- Progress Section -->
+            <div class="section">
+                <h3>Your Progress</h3>
+                @foreach (var progress in Model.Progresses)
+                {
+                    <div class="progress-item">
+                        <p><b>@progress.CourseName</b></p>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" style="width:@progress.CompletionPercentage%"></div>
+                        </div>
+                        <p>@progress.CompletionPercentage% Complete</p>
+                    </div>
+                }
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="section">
+                <h3>Your Achievements</h3>
+                <div class="achievements-list">
+                    @foreach (var achievement in Model.Achievements)
+                    {
+                        <div class="achievement-item">
+                            <img src="~/images/Badge.png" alt="Badge" class="achievement-badge" />
+                            <div class="tooltip">
+                                <strong>@achievement.BadgeName</strong><br />
+                                @achievement.CertificateDetails
+                            </div>
+                            <div class="achievement-details">
+                                <h4>@achievement.BadgeName</h4>
+                                <p>@achievement.CertificateDetails</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <!-- Leaderboard Section -->
+            <div class="section">
+                <h3>Leaderboard</h3>
+                @if (Model.Leaderboard != null && Model.Leaderboard.Count > 0)
+                {
+                    <table class="leaderboard-table">
+                        <thead>
+                            <tr>
+                                <th>SL.No</th>
+                                <th>User ID</th>
+                                <th>Rank</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Leaderboard)
+                            {
+                                var isCurrentUser = (item.UserId == (int)Session["UserId"]);
+                                <tr class="@(isCurrentUser ? "highlighted-row" : "")">
+                                    <td>@(Model.Leaderboard.IndexOf(item) + 1)</td>
+                                    <td>@item.UserId</td>
+                                    <td>@item.Rank</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>No leaderboard data available.</p>
+                }
+            </div>
+
+            <!-- Next Reward Section -->
+            <div class="section reward-section">
+                <h3>Next Reward</h3>
+                <p>Time to next reward: <span id="reward-timer">Loading...</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link href="~/Content/style.css" rel="stylesheet" type="text/css">
+<script src="~/Script/dashboard.js"></script>

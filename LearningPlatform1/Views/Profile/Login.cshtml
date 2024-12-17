@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .login-container h1 {
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+                text-align: center;
+                color: #333333;
+            }
+
+            .login-container label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: #555555;
+            }
+
+            .login-container input[type="text"],
+            .login-container input[type="password"] {
+                width: 90%;
+                padding: 0.8rem;
+                margin-bottom: 1.2rem;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                font-size: 1rem;
+                background: #f9f9f9;
+            }
+
+            .login-container button {
+                display: block;
+                width: 50%;
+                padding: 0.8rem;
+                font-size: 1rem;
+                background-color: #800000;
+                color: #ffffff;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                margin: 0 auto;
+            }
+
+                .login-container button:hover {
+                    background-color: #0056b3;
+                }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post" action="/Profile/Login">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        @if (!string.IsNullOrEmpty(ViewBag.Error))
+        {
+            <p class="error-message">@ViewBag.Error</p>
+        }
+    </div>
+</body>
+</html>
