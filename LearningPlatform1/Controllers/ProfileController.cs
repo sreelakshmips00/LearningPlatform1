@@ -12,7 +12,7 @@ namespace LearningPlatform1.Controllers
     {
         private string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["LearningPlatformDB"].ConnectionString;
 
-        // Login Page
+        
         public ActionResult Login()
         {
             return View();
@@ -46,7 +46,7 @@ namespace LearningPlatform1.Controllers
             }
         }
 
-        // Dashboard
+        
         public ActionResult Dashboard()
         {
             if (Session["UserId"] == null)
