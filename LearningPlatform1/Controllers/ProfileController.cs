@@ -81,7 +81,7 @@ namespace LearningPlatform1.Controllers
 
                 progressReader.Close();
 
-                // Fetch Achievements
+                
                 string achievementQuery = "SELECT BadgeName, CertificateDetails FROM Achievements WHERE UserId = @UserId";
                 SqlCommand achievementCommand = new SqlCommand(achievementQuery, connection);
                 achievementCommand.Parameters.AddWithValue("@UserId", userId);
@@ -98,7 +98,7 @@ namespace LearningPlatform1.Controllers
 
                 achievementReader.Close();
 
-                // Fetch Leaderboard
+                
                 string leaderboardQuery = "SELECT UserId, Rank FROM Leaderboard ORDER BY Rank" ;
                 SqlCommand leaderboardCommand = new SqlCommand(leaderboardQuery, connection);
                 SqlDataReader leaderboardReader = leaderboardCommand.ExecuteReader();
@@ -114,7 +114,7 @@ namespace LearningPlatform1.Controllers
 
                 leaderboardReader.Close();
 
-                // Fetch Rank and Rewards
+                
                 string userRankQuery = "SELECT Rank FROM Leaderboard WHERE UserId = @UserId";
                 SqlCommand userRankCommand = new SqlCommand(userRankQuery, connection);
                 userRankCommand.Parameters.AddWithValue("@UserId", userId);
@@ -134,10 +134,10 @@ namespace LearningPlatform1.Controllers
         public ActionResult Logout()
         {
             // Clear the user session
-            Session.Clear();       // Clears all session data
-            Session.Abandon();     // Abandons the session
+            Session.Clear();       
+            Session.Abandon();     
 
-            // Redirect to the Login page
+            
             return RedirectToAction("Login", "Profile");
         }
 

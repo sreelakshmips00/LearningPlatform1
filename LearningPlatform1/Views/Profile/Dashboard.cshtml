@@ -3,7 +3,7 @@
 }
 
 <div class="dashboard-container">
-    <!-- Sidebar -->
+    
     <div class="sidebar">
         <div class="sidebar-header">
             <h2>Dashboard</h2>
@@ -14,11 +14,11 @@
         </ul>
     </div>
 
-    <!-- Main Content Area -->
+    
     <div class="main-content">
         <div class="container">
 
-            <!-- Theme Customization Buttons -->
+            
             <div class="theme-buttons">
                 <button class="theme-toggle-btn" id="light-theme-btn">Light Theme</button>
                 <button class="theme-toggle-btn" id="dark-theme-btn">Dark Theme</button>
@@ -27,7 +27,7 @@
             <h1><center>Welcome Back, User!</center></h1>
             <p><b><center>Your personalized dashboard for tracking progress and rewards.</center></b></p>
 
-            <!-- Progress Section -->
+            
             <div class="section">
                 <h3>Your Progress</h3>
                 @foreach (var progress in Model.Progresses)
@@ -42,7 +42,7 @@
                 }
             </div>
 
-            <!-- Achievements Section -->
+            
             <div class="section">
                 <h3>Your Achievements</h3>
                 <div class="achievements-list">
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <!-- Leaderboard Section -->
+            
             <div class="section">
                 <h3>Leaderboard</h3>
                 @if (Model.Leaderboard != null && Model.Leaderboard.Count > 0)
@@ -95,7 +95,7 @@
                 }
             </div>
 
-            <!-- Next Reward Section -->
+            
             <div class="section reward-section">
                 <h3>Next Reward</h3>
                 <p>Time to next reward: <span id="reward-timer">Loading...</span></p>

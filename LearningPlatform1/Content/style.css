@@ -90,8 +90,8 @@ h3 {
     background-color: #2F4F4F;
     height: 100%;
     border-radius: 25px;
-    width: 0%; /* Initially set width to 0 */
-    transition: width 1s ease-in-out; /* Smooth transition */
+    width: 0%; 
+    transition: width 1s ease-in-out;
 }
 
 .achievements-list {
@@ -203,7 +203,7 @@ h3 {
     color: white;
 }
 
-/* Dark Mode Styles */
+
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
